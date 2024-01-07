@@ -1,25 +1,40 @@
 #include <stdio.h>
-void swapByValue(int a, int b)
-{
-    int temp = a;
-    a = b;
-    b = temp;
-}
-void swapByReference(int *a, int *b)
-{
-    int temp = *a;
-    *a = *b;
-    *b = temp;
-}
-int main()
-{
+
+int main() {
     int num1, num2;
-    printf("Enter two numbers: ");
-    scanf("%d %d", &num1, &num2);
-    printf("Original numbers: num1 = %d, num2 = %d\n", num1, num2);
-    swapByValue(num1, num2);
-    printf("After swapByValue: num1 = %d, num2 = %d\n", num1, num2);
-    swapByReference(&num1, &num2);
-    printf("After swapByReference: num1 = %d, num2 = %d\n", num1, num2);
-    return 0;
+    char operator;
+
+    printf("Enter first number: ");
+    scanf("%d", &num1);
+
+    printf("Enter operator (+, -, *, /, %%): ");
+    scanf(" %c", &operator);
+
+    printf("Enter second number: ");
+    scanf("%d", &num2);
+
+    switch (operator) {
+        case '+':
+            printf("Result: %d\n", num1 + num2);    
+            break;
+        case '-':
+            printf("Result: %d\n", num1 - num2);
+            break;
+        case '*':
+            printf("Result: %d\n", num1 * num2);
+            break;
+        case '/':   
+            if (num2 != 0) {
+                printf("Result: %.2f\n", (float)num1 / num2);
+            } else {
+                printf("Error: Division by zero is not allowed.\n");
+            }
+            break;
+        case '%':
+            printf("Result: %d\n", num1 % num2);
+            break;
+        default:
+            printf("Error: Invalid operator.\n");
+            break;
+    }
 }
