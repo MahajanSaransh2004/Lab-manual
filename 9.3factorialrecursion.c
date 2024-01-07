@@ -1,8 +1,8 @@
+//C Program to find factorial of a given number using recursion
 #include <stdio.h>
 int factorial(int);
 int main() {
     int num, result;
-    //Ask user for the input and store it in num
     printf("Enter a number to find it's Factorial: ");
     scanf("%d", &num);
     if (num < 0) {
@@ -20,7 +20,6 @@ int factorial(int num) {
         return 1;
     }
     else {
-        //Function calling itself: recursion
         return(num * factorial(num - 1));
     }
 }
